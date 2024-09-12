@@ -14,14 +14,14 @@ const navigation = () => {
         <Stack.Screen 
         name='Products' 
         component={ProducScreen}
-        options = {{
+        options = {({navigation}) =>({
             headerRight: () => (
-                <Pressable>
-                    <Ionicons name = 'cart' size={20} color='black'/>
-                    <Text>3</Text>
+                <Pressable onPress={()=>navigation.navigate('Cart')} style = {{flexDirection: 'row'}}>
+                    <Ionicons name = 'cart' size={25} color='black'/>
+                    <Text style = {{marginLeft: 5, fontWeight: 'bold', fontSize: 20}}>3</Text>
                 </Pressable>
             )
-        }}
+        })}
         />
         <Stack.Screen 
         name='Product Details' 
