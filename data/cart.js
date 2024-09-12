@@ -19,7 +19,7 @@ export default [
       price: 169,
     },
     size: 43,
-    quantity: 1,
+    quantity: 2,
   },
   {
     product: {
