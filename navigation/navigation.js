@@ -5,10 +5,14 @@ import ProducScreen from '../screens/ProductsScreen'
 import ProductDetailsScreen from '../screens/ProductDetailsScreen'
 import ShoppingCart from '../screens/ShoppingCart'
 import { Ionicons } from '@expo/vector-icons'
+import { useSelector } from 'react-redux'
+import { selectNumberOfItems } from '../store/cartSlice'
 
 const Stack = createNativeStackNavigator();
 
 const navigation = () => {
+
+    const numberOfItems = useSelector(selectNumberOfItems);
   return (
     <Stack.Navigator>
         <Stack.Screen 
@@ -18,7 +22,7 @@ const navigation = () => {
             headerRight: () => (
                 <Pressable onPress={()=>navigation.navigate('Cart')} style = {{flexDirection: 'row'}}>
                     <Ionicons name = 'cart' size={25} color='black'/>
-                    <Text style = {{marginLeft: 5, fontWeight: 'bold', fontSize: 20}}>3</Text>
+                    <Text style = {{marginLeft: 5, fontWeight: 'bold', fontSize: 20}}>{numberOfItems}</Text>
                 </Pressable>
             )
         })}
